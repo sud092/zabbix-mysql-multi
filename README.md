@@ -14,7 +14,7 @@ Install procedure.
 1. Install "mysql-lld-discover.sh" under /etc/zabbix/ and make executable.
 2. Install "userparameters_mysql_multi.conf" under /etc/zabbix/zabbix_agentd.d/
 3. Install "zabbix" under /etc/sudoers.d/ (Best practice is not to edit the sudoers file directly) to allow Zabbix to run the netstat command with the -p flag as root.
-4. Install ".multi.cnf" under /etc/zabbix/ changing the credentials and make sure you have the same user on each MySQL instance with all privileges. Especially if you have "skip_name_resolve" system variable set in mysql.
+4. Install ".multi.cnf" under /etc/zabbix/ changing the credentials and make sure you have the same user on each MySQL instance with all privileges. Especially if you have "skip_name_resolve" system variable set in mysql and want to use a localhost connection for the Zabbix user.
 5. Test the script on the agent.
 ```
 zabbix_agentd -t mysql.questions[3306]
