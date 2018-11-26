@@ -1,0 +1,3 @@
+[client]
+user=<zabbix_mysql_username>
+password=<zabbix_mysql_password>
