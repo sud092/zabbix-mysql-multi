@@ -1,0 +1,4 @@
+Cmnd_Alias	SUDOEXTENDED = /bin/netstat
+
+zabbix ALL=(ALL) NOPASSWD: SUDOEXTENDED
+
