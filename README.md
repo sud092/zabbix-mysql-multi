@@ -5,7 +5,7 @@
 
 Tips: 
 
-- If you have little CPU power, i would advise against having all items monitored on more than 5 instances per server as there is no caching functionality built into the discovery script.  
+- If you have little CPU power, i would advise against having all items monitored on more than 5 instances per server as there is no caching functionality built into the discovery script like the percona template.
 - You can comment out user parameters and select "Create Disabled" for item prototypes after importing the template. 
 - Make sure "Include=/etc/zabbix/zabbix_agentd.d/" exists within "zabbix_agentd.conf"
 
