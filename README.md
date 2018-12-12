@@ -7,7 +7,7 @@ Tips:
 
 1. From an active agent perspective, I would advise against having all metrics from the mysqladmin "extended status" command polled on more than 5 instances per server as there is no caching functionality built into the template, unlike the percona template. Having too many metrics polled will eat away at your CPU very quickly. 
 2. Make sure "Include=/etc/zabbix/zabbix_agentd.d/" exists within "zabbix_agentd.conf"
-3. You will need to use a MySQL user with the localhost IP address instead of DNS i.e 'zabbix_mysql'@'127.0.0.1' (not 'zabbix_mysql'@'localhost') if you have the "skip_name_resolve" system variable enabled on each MySQL instance. Make sure this user is added to every instance with all privileges on all databases and tables, otherwise monitoring won't work.
+3. You will need to use a MySQL user with the localhost IP address instead of DNS i.e 'zabbix_mysql'@'127.0.0.1' (not 'zabbix_mysql'@'localhost') if you have the "skip_name_resolve" system variable enabled on each MySQL instance. Make sure this user is added to every instance you wish to monitor with all privileges on all databases and tables, otherwise monitoring won't work.
 
 Install procedure.
 
