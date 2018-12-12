@@ -11,10 +11,14 @@ Tips:
 
 Install procedure.
 
-1. Install "mysql-lld-discover.sh" under /etc/zabbix/ and make executable.
-2. Install "userparameters_mysql_multi.conf" under /etc/zabbix/zabbix_agentd.d/
+1. Install "mysql-lld-discover.sh" under /etc/zabbix/ ; Make executable and test it.
+2. Install "userparameters_mysql_multi.conf" under /etc/zabbix/zabbix_agentd.d/ ; Restart Zabbix Agent. 
+```
+sudo systemctl restart zabbix-agent
+```
+If restart fails, you likely have a typo in the .conf file or a user parameter already exists elsewhere.
 3. Install "zabbix" under /etc/sudoers.d/ to allow Zabbix to run the netstat command with the -p flag as root (Best practice is not to edit the sudoers file directly).
-4. Install ".multi.cnf" under /etc/zabbix/ changing the credentials to those you desire and add the user specified in this file to every MySQL instance you want to monitor if you haven't already (Refer to Tip 3).
+4. Install ".multi.cnf" under /etc/zabbix/ ; Change the credentials to those you desire and add the user specified in this file to every MySQL instance you want to monitor if you haven't already (Refer to Tip 3).
 5. Test the script on the agent.
 ```
 zabbix_agentd -t mysql.questions[3306]
@@ -28,4 +32,4 @@ zabbix_get -s <agent-ip> -P <zabbix-agent-port> -k mysql.questions[3307]
 zabbix_get -s <agent-ip> -P <zabbix-agent-port> -k mysql.questions[3308]
 ```
 7. Import Template in the Zabbix web interface.
-Item and Trigger prototypes are listed under the Templates discovery tab, not items or triggers.
+Item and Trigger prototypes are listed under the Templates discovery tab, not items or triggers. Once added to a host, Zabbix will start gathering metric data. You might need to restart Zabbix server or Agent. Be patient.
