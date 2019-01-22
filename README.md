@@ -40,5 +40,7 @@ zabbix_get -s <agent-ip> -P <zabbix-agent-port> -k mysql.questions[3307]
 zabbix_get -s <agent-ip> -P <zabbix-agent-port> -k mysql.questions[3308]
 ```
 
-7. Import Template in the Zabbix web interface.
-Item and Trigger prototypes are listed under the Templates discovery tab, not items or triggers. Once added to a host, Zabbix will start gathering metric data. You might need to restart Zabbix server or Agent. Be patient.
+7. Import the xml template to the Zabbix web interface.
+
+Item and Trigger prototypes are listed under the Templates discovery tab, not items or triggers. 
+Once added to a host, Zabbix will start gathering metric data. You might need to restart Zabbix server and/or Agent. Be patient.
