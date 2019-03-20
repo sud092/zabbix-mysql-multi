@@ -1,7 +1,7 @@
 # zabbix-mysql-multi
 ## MySQL Monitoring with Zabbix
 
-#### A simple MySQL template i created to monitor basic metrics for a development environment consisting of 5-10 instances on a single box.
+#### A simple Zabbix template that i created to monitor the essential MySQL Database metrics for a development environment consisting of 5-10 different database instances on a single box; including snapshots.
 
 Tips: 
 
