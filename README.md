@@ -3,11 +3,11 @@
 
 #### A simple Zabbix template i created to monitor essential MySQL Database metrics for an environment consisting of 5-10 different database instances on a single server. I can't guarantee this will work on zabbix versions other than 3.4.
 
-Tips: 
+Before installation: 
 
-1. If you want to use active monitoring, i would advise against having all metrics from the mysqladmin "extended status" command polled on more than 5 instances per server as there is no caching functionality built into this template; unlike the percona template. Having too many metrics polled on many MySQL instances will eat away at your CPU, particularly if you have a lot of insances on a single box.
+1. If you want to use active monitoring, i would advise against having all metrics from the mysqladmin "extended status" command polled on more than 5 instances per server as there is no caching functionality built into this template; unlike the percona template. Having too many metrics polled on many MySQL instances will eat away at your CPU, particularly if you have a lot of insances on a single box and only one CPU.
  
-2. Make sure "Include=/etc/zabbix/zabbix_agentd.d/" exists within "zabbix_agentd.conf"
+2. Make sure "Include=/etc/zabbix/zabbix_agentd.d/" exists within the agent's "zabbix_agentd.conf" configuration file.
 
 3. You will need to create a dedicated MySQL user with the localhost IP address instead of DNS i.e 'zabbix_mysql'@'127.0.0.1' (not 'zabbix_mysql'@'localhost') if you have the "skip_name_resolve" system variable enabled on each MySQL instance. Make sure this user is added to every instance you wish to monitor with all privileges on all databases and tables, otherwise monitoring won't work.
 
