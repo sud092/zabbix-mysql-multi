@@ -17,7 +17,7 @@
 
 2. Install "userparameters_mysql_multi.conf" under /etc/zabbix/zabbix_agentd.d/ ; Check that you can execute these commands as the zabbix user, then restart zabbix-agent. 
 
-```
+```bash
 sudo systemctl restart zabbix-agent
 ```
 
@@ -25,26 +25,31 @@ If restart fails, check you don't have any typos in the .conf file and if the sa
 
 3. Install "zabbix" under /etc/sudoers.d/ to allow Zabbix to run the netstat command with the -p flag as root (Best practice is to use visudo).
 
-```
-visudo -f zabbix
+```bash
+sudo visudo -f /etc/sudoers.d/zabbix
 ```
 
 4. Install ".multi.cnf" under /etc/zabbix/ ; Change the credentials to those you desire and make sure this user+password is added to all your mysql instances that you wish to monitor (Refer to Tip 3).
 
+```bash
+sudo chown zabbix:zabbix /etc/zabbix/scripts/mysql-lld-discover.sh
+sudo chmod 600 /etc/zabbix/scripts/mysql-lld-discover.sh
+```
+
 5. Test the script on the agent.
 
-```
-zabbix_agentd -t mysql.questions[3306]
-zabbix_agentd -t mysql.questions[3307]
-zabbix_agentd -t mysql.questions[3308]
+```bash
+zabbix_agentd -t multi.questions[3306]
+zabbix_agentd -t multi.questions[3307]
+zabbix_agentd -t multi.questions[3308]
 ```
 
 6. Test the script on the server.
 
-```
-zabbix_get -s <agent-ip> -P <zabbix-agent-port> -k mysql.questions[3306]
-zabbix_get -s <agent-ip> -P <zabbix-agent-port> -k mysql.questions[3307]
-zabbix_get -s <agent-ip> -P <zabbix-agent-port> -k mysql.questions[3308]
+```bash
+zabbix_get -s <agent-ip> -P <zabbix-agent-port> -k multi.questions[3306]
+zabbix_get -s <agent-ip> -P <zabbix-agent-port> -k multi.questions[3307]
+zabbix_get -s <agent-ip> -P <zabbix-agent-port> -k multi.questions[3308]
 ```
 
 7. Import the xml template to the Zabbix web interface.

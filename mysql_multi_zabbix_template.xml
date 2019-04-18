@@ -7,7 +7,7 @@
             <name>Bridgwater Dev Databases</name>
         </group>
         <group>
-            <name>Zabbix Servers</name>
+            <name>Zabbix MySQL Servers</name>
         </group>
     </groups>
     <templates>

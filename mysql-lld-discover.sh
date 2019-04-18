@@ -2,7 +2,7 @@
 
 ## Prints a JSON array of port numbers all used by mysqld instances.
 
-res=`sudo /bin/netstat -lntp | awk '/mysqld/{print$4}' | sed "s/://g"`
+res=`sudo /bin/netstat -lntp | awk '/mysqld/{print$4}' | sed -rn 's/^.+:([[:digit:]]+)$/\1/p'`
 
 port=($res)
 
