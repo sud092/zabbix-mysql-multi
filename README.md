@@ -1,5 +1,5 @@
 # zabbix-mysql-multi
-## MySQL Monitoring with Zabbix for Ubuntu 16.04 and Zabbix 3.2 +
+## MySQL Monitoring Template with Zabbix for Ubuntu 16.04 and Zabbix 3.2 +
 
 #### A simple Zabbix template i created to monitor essential MySQL Database metrics for an environment consisting of 5-10 different database instances on a single server. I can't guarantee this will work on zabbix versions other than 3.2, 3.4 or 4.2 but there's always only one way to find out isn't there.
 
